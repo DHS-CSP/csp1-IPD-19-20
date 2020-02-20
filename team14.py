@@ -5,9 +5,8 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
-
 team_name = 'Pencils' # Only 10 chars displayed.
-strategy_name = 'Get your reward'
+strategy_name = 'Get you reward'
 strategy_description = 'One Betrays while the other colludes, so they get a reward, + 100 points, since the first person to decide chooses betray and next collude, which is the right combo to get off clean and get a reward.'
 
 def move(my_history, their_history, my_score, their_score):
@@ -22,4 +21,9 @@ def move(my_history, their_history, my_score, their_score):
     # The most recent round is my_history[-1] and their_history[-1].
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    return 'c'
+    if 'b' in their_history:
+      return 'c'
+    elif their_score == 100:
+      return 'c'
+    else:
+      return 'b'
