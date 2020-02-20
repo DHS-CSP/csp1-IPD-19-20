@@ -20,11 +20,13 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    
-    if len(my_history) == 0: # It's the first round; betray.
-     return 'b'
-  elif my_history[-1]=='c' and their_history[-1]=='b':
-    return 'b' # Betray if they were severely punished last time,
-  else:
-   return 'c'
+
+    #This example player always betrays.      
+    if len(my_history)==0: # It's the first round; betray.
+        return 'b'
+    elif my_history[-1]=='c' and their_history[-1]=='b':
+        return 'b' # Betray if they were severely punished last time,
+    else:
+        return 'b' # otherwise betray. Betraying every turn is good because there is no possiblilty the enemy team can get a positive score. It is the most consistent and we although we lose points, we lose less than the other team which wins the game for us.
+
 

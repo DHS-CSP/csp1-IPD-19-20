@@ -6,10 +6,12 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
+team_name = 'Dolphins' # Only 10 chars displayed.
+strategy_name = 'Half and Half unless betrayed in last 2 rounds'
+strategy_description = 'This strategy has an equal chance to chose either betray or collude. However, if opposing team betrays within the last two rounds, our team will betray as well.'
+
+import random
+
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -26,5 +28,11 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    if 'b' in their_history[-2:]: # If the other player has betrayed within last 2 rounds, 
+        return 'b'               # Betray.
+    else:
+        if random.random()<0.5: # 50% of the other rounds
+            return 'b'         # Betray
+        else:
+            return 'c'         # but 50% of the time collude
 
