@@ -15,7 +15,7 @@ def move(my_history, their_history, my_score, their_score):
   trust = True
   for check in their_history: 
     if check != "c": 
-      trust = "False" 
+      trust = False 
   if trust == False: 
     return "b" 
   else: 
