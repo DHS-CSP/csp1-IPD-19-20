@@ -21,6 +21,6 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b' for collude or betray.
     '''
     
-    # This player always colludes.
-    return 'c'
+    # This player always colludes
+     return 'c'
     

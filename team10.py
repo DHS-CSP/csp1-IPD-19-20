@@ -6,9 +6,11 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'MegaRcheat' # Only 10 chars displayed.
+strategy_name = 'Random'
+strategy_description = 'The program randomly picks a number between 1 and 2. If 1 was picked, the we collude. If 2 was picked, we betray.'
+
+import random
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,6 +27,12 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
+    choice = random.randint(1, 2)
+    if choice == 1:
+      return "c"
+    else: 
+      return "b"
+  
+  
     
-    return 'c'
 
